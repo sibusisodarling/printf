@@ -43,30 +43,6 @@ int _printf(const char *format, ...)
 					}
 					break;
 				}
-				case 'd':
-				case 'i':
-				{
-					int i = 0;
-					char buf[20];
-					int num = va_arg(args, int);
-
-					if (num < 0)
-					{
-						putchar('-');
-						count++;
-						num = -num;
-					}
-					do {
-						buf[i++] = (num % 10) + '0';
-						num /= 10;
-					} while (num > 0);
-					while (i > 0)
-					{
-						putchar(buf[--i]);
-						count++;
-					}
-					break;
-				}
 				case '%':
 				{
 					putchar('%');
